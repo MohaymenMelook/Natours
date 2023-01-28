@@ -1,0 +1,51 @@
+@mixin clearfix {
+  &::after {
+    content: '';
+    clear: both;
+    display: table;
+  }
+}
+
+@mixin gradient-background-image($light-color, $dark-color, $alpha, $img) {
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($light-color, $alpha),
+      rgba($dark-color, $alpha)
+    ),
+    url($img);
+  background-size: cover;
+  background-position: top;
+}
+
+@mixin gradient-background-to-right-bottom($light-color, $dark-color, $alpha) {
+  background-image: linear-gradient(
+    to right bottom,
+    rgba($light-color, $alpha),
+    rgba($dark-color, $alpha)
+  );
+}
+
+@mixin gradient-font-to-dark {
+  display: inline-block;
+  background-image: $primary-to-right-dark;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+@mixin nav-circular-button($diameter, $distance, $z-index) {
+  width: $diameter;
+  height: $diameter;
+  border-radius: 50%;
+  position: fixed;
+  top: $distance;
+  right: $distance;
+  z-index: $z-index;
+}
+
+@mixin center-horizontal-vertical($top) {
+  position: absolute;
+  top: $top;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
